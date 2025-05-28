@@ -9,6 +9,9 @@ function App(props) {
       <Card Details={Contacts[0]} />
       <Card Details={Contacts[1]} />
       <Card Details={Contacts[2]} />
+      <Card Details={Contacts[3]} />
+      <Card Details={Contacts[4]} />
+      <Card Details={Contacts[5]} />
     </>
   );
 }
