@@ -84,3 +84,89 @@ Note: Use React Documentation to solve errors rather than chatGPT. That way you 
 
 
 **A project was built today using this concept — refer to its README for project-specific details.**
+
+## 💡 Bonus: Other Useful Array Methods
+
+### 🔁 `map()`
+**Purpose:** Creates a new array by transforming every element in the original array.
+
+```js
+const numbers = [1, 2, 3, 4];
+
+const doubled = numbers.map(function(num) {
+  return num * 2;
+});
+// Result: [2, 4, 6, 8]
+```
+
+---
+
+### 🧹 `filter()`
+**Purpose:** Creates a new array with elements that pass a given condition.
+
+```js
+const numbers = [1, 2, 3, 4];
+
+const even = numbers.filter(function(num) {
+  return num % 2 === 0;
+});
+// Result: [2, 4]
+```
+
+---
+
+### 🧮 `reduce()`
+**Purpose:** Reduces the array to a single value by applying a function to each item.
+
+```js
+const numbers = [1, 2, 3, 4];
+
+const sum = numbers.reduce(function(accumulator, current) {
+  return accumulator + current;
+}, 0);
+// Result: 10
+```
+
+---
+
+### 🔍 `find()`
+**Purpose:** Returns the **first** element in the array that satisfies a condition.
+
+```js
+const numbers = [1, 3, 5, 7, 10, 15];
+
+const firstEven = numbers.find(function(num) {
+  return num % 2 === 0;
+});
+// Result: 10
+```
+
+---
+
+### 🔢 `findIndex()`
+**Purpose:** Returns the **index** of the first element that matches a condition. If no match, returns `-1`.
+
+```js
+const names = ["Alice", "Bob", "Charlie"];
+
+const index = names.findIndex(function(name) {
+  return name === "Charlie";
+});
+// Result: 2
+```
+
+---
+
+### ✅ Quick Reference
+
+| Method         | Returns         | Use Case                          |
+|----------------|------------------|-----------------------------------|
+| `map()`        | New array        | Transforming data                 |
+| `filter()`     | New array        | Selecting based on condition      |
+| `reduce()`     | Single value     | Aggregating (sum, average, etc.)  |
+| `find()`       | First matching item | Finding a specific element     |
+| `findIndex()`  | Index number     | Finding the position of a match   |
+
+---
+
+Today, I also built a project based on this concept — rendering an emoji dictionary using `map()`. The project has its own README with details.
