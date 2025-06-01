@@ -79,3 +79,8 @@ export default App;
 ```
 Everything looks fine but what is key! You need to give each array item a key — a string or a number that uniquely identifies it among other items in that array. This key is an unique id that should already exist in the data. And you cannot use any other name other than key for it. 
 Note that your components won’t receive key as a prop. It’s only used as a hint by React itself. If your component needs an ID, you have to pass it as a separate prop: as I did in the above code (commented part)
+
+Note: Use React Documentation to solve errors rather than chatGPT. That way you will know how to read docs. Reading docs will help you in many ways, there are so many things to one line of the code which chatgpt may or maynot explain but documentation does. 
+
+
+**A project was built today using this concept — refer to its README for project-specific details.**
