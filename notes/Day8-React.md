@@ -102,7 +102,10 @@ const doubled = numbers.map(function(num) {
 ---
 
 ### 🧹 `filter()`
-**Purpose:** Creates a new array with elements that pass a given condition.
+**Purpose:** Creates a new array that contains only the elements which satisfy a given condition.
+It doesn't modify the original array — it simply checks each item, and if the condition returns true, that item is included in the new array.
+
+Unlike map(), which transforms each item, filter() only includes or excludes items.
 
 ```js
 const numbers = [1, 2, 3, 4];
