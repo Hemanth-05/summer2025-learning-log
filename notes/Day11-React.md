@@ -1,5 +1,5 @@
 
-# 📘 Day 11 – Declarative vs Imperative Programming in React
+# 📘 Day 11 – Declarative vs Imperative Programming and `useState`, Re-rendering  in React
 
 Today, I learned about two different programming paradigms: **Declarative** and **Imperative**. Understanding the difference between the two helps in writing more readable, maintainable, and efficient code — especially in React.
 
@@ -69,3 +69,64 @@ console.log(doubled); // [2, 4, 6]
 ---
 
 React is **declarative** — you describe what the UI should look like, and React figures out how to render it to the DOM.
+
+## 🔄 Understanding `useState` and Re-rendering in React
+
+Today, I explored the concept of **React Hooks**, specifically the `useState()` hook.
+
+### 🧠 What is `useState()`?
+
+- A **React Hook** that lets you **store and update state** in functional components.
+- It returns an array with two values:
+  - The current **state value**
+  - A **function** to update that value
+
+### ✅ Example:
+
+```jsx
+const [count, setCount] = useState(0);
+```
+
+Here:
+- `count` is the current value
+- `setCount` is used to change it
+
+### ⚠️ Why `const`?
+
+- We're **not changing the reference to `count` or `setCount`**, only updating the value that React tracks.
+- So using `const` is totally safe and idiomatic here.
+
+---
+
+## 🔁 How React Re-renders
+
+- When you call `setCount()`, **React re-runs the component function** that contains `useState`.
+- It **does not reload the full page**.
+- Only the **component where the state changed** — and its **children** — will re-render.
+
+### 🌳 Tree Example:
+
+```jsx
+<App>
+ ├── <Navbar />
+ ├── <Counter />  ← uses useState
+ │    ├── <Display />
+ │    └── <Buttons />
+ └── <Footer />
+```
+
+If `Counter` changes its state:
+
+- ✅ `Counter` re-renders
+- ✅ `Display` and `Buttons` also re-render
+- ❌ `Navbar` and `Footer` remain untouched
+
+---
+## 🧠 Bonus: `onClick={increase}` vs `onClick={increase()}`
+
+- ✅ `onClick={increase}` → passes the function reference. It runs **only when clicked**.
+- ❌ `onClick={increase()}` → runs **immediately during render**, causing infinite loops.
+
+---
+
+This was a deep dive into how React handles **state, re-renders**, and **component-based UI** updates. Loving it so far!
