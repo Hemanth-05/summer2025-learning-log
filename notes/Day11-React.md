@@ -130,3 +130,80 @@ If `Counter` changes its state:
 ---
 
 This was a deep dive into how React handles **state, re-renders**, and **component-based UI** updates. Loving it so far!
+
+---
+
+## 🔍 Understanding Array Destructuring in `useState()`
+
+When we use `useState()` in React, we usually write it like this:
+
+```js
+const [count, setCount] = useState(0);
+```
+
+Let’s break this down step by step:
+
+### ✅ What `useState()` Returns
+
+The `useState()` function returns an **array** with exactly two items:
+
+```js
+[ currentStateValue, functionToUpdateState ]
+```
+
+So calling `useState(0)` returns:
+
+```js
+[0, setCountFunction]
+```
+
+### 🧠 Array Destructuring
+
+JavaScript lets you assign variables directly from elements in an array using destructuring:
+
+```js
+const arr = [10, 20];
+const [a, b] = arr; // a = 10, b = 20
+```
+
+So:
+
+```js
+const [count, setCount] = useState(0);
+```
+
+- `count` gets the current state value (starting at 0)
+- `setCount` is a function used to update `count`
+
+### 🔁 Updating the State
+
+Every time you call `setCount(newValue)`, React:
+- Updates the value of `count`
+- Re-renders the component
+
+### 🤓 Why Destructuring?
+
+This makes your code:
+- Clean and readable
+- Easy to understand with meaningful variable names
+
+Examples:
+
+```js
+const [name, setName] = useState("");
+const [isDarkMode, setIsDarkMode] = useState(false);
+```
+
+### 🔄 Without Destructuring (Not Recommended)
+
+You could technically write:
+
+```js
+const stateArr = useState(0);
+const count = stateArr[0];
+const setCount = stateArr[1];
+```
+
+But it’s less readable and not idiomatic in React.
+
+---
