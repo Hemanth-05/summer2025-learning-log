@@ -72,8 +72,6 @@ React is **declarative** — you describe what the UI should look like, and Reac
 
 ## 🔄 Understanding `useState` and Re-rendering in React
 
-Today, I explored the concept of **React Hooks**, specifically the `useState()` hook.
-
 ### 🧠 What is `useState()`?
 
 - A **React Hook** that lets you **store and update state** in functional components.
