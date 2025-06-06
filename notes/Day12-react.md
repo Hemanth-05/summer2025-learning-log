@@ -57,6 +57,15 @@ const { username: userName } = user;
 console.log(userName); // coder123
 ```
 
+> 🧠 You're not accessing by index like an array. In objects, you must refer to the exact key name.
+> You can rename the variable by using `key: newName`.
+
+```js
+// Renaming
+const { username: userName } = user;
+console.log(userName); // "coder123"
+```
+
 ### 🛠 Default Values
 ```js
 const settings = {
@@ -65,6 +74,36 @@ const settings = {
 const { theme, fontSize = 16 } = settings;
 console.log(theme);    // "dark"
 console.log(fontSize); // 16
+```
+
+Let us see an example where we rename all the properties inside an objects
+```js
+const user = {
+  name: "Hemanth",
+  address: {
+    city: "New York",
+    zip: 10001
+  }
+};
+
+// Renaming all properties
+const {
+  name: fullName,
+  address: {
+    city: userCity,
+    zip: postalCode
+  }
+} = user;
+
+console.log(fullName);     // "Hemanth"
+console.log(userCity);     // "New York"
+console.log(postalCode);   // 10001
+```
+
+If we also wants to rename address then we write
+```js
+// Rename 'address' to 'location'
+const { address: location } = user;
 ```
 
 ---
@@ -102,15 +141,15 @@ This is a practical example of **array destructuring** in everyday React develop
 
 ---
 
-## 📍 Quick Reference Table
+## 📍 Summary: Arrays vs. Objects
 
-| Type       | Syntax                           | Description                          |
-|------------|-----------------------------------|--------------------------------------|
-| Array      | `const [a, b] = array`           | Based on position                    |
-| Object     | `const { key } = object`         | Based on property name               |
-| Skipping   | `const [a, , c] = array`         | Skip specific array values           |
-| Renaming   | `const { key: newVar } = object` | Rename extracted object properties   |
-| Defaults   | `const [a = 10] = []`            | Provide fallback/default values      |
+| Feature            | Arrays                                      | Objects                                     |
+|--------------------|---------------------------------------------|---------------------------------------------|
+| Access Type        | Positional (based on index)                 | Key-based                                   |
+| Syntax             | `const [a, b] = arr`                        | `const { key } = obj`                      |
+| Skip Values        | Yes (`const [a, , c] = arr`)                | No (must reference key)                    |
+| Rename             | Not applicable                              | Yes (`{ key: newName }`)                   |
+| Default Values     | Yes (`const [a = 5] = []`)                  | Yes (`const { key = default } = obj`)      |
 
 ---
 
