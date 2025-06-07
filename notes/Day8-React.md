@@ -56,7 +56,7 @@ function CreateCard(contactDetails) {
   return (
     <Card
       key={contactDetails.id}
-    //   id={contactDetails.id}     This you can use as a prop to render the kay on the website
+    //   id={contactDetails.id}     This you can use as a prop to render the key on the website
       name={contactDetails.name}
       img={contactDetails.imgURL}
       tel={contactDetails.phone}
@@ -83,7 +83,7 @@ Note that your components won’t receive key as a prop. It’s only used as a h
 Note: Use React Documentation to solve errors rather than chatGPT. That way you will know how to read docs. Reading docs will help you in many ways, there are so many things to one line of the code which chatgpt may or maynot explain but documentation does. 
 
 
-**A project was built today using this concept — refer to its README for project-specific details.**
+**A project was built today - rendering an emoji dictionary using this concept map(); — refer to its README for project-specific details.**
 
 ## 💡 Bonus: Other Useful Array Methods
 
@@ -172,4 +172,3 @@ const index = names.findIndex(function(name) {
 
 ---
 
-Today, I also built a project based on this concept — rendering an emoji dictionary using `map()`. The project has its own README with details.
