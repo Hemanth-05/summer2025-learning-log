@@ -1,4 +1,5 @@
-# Day 17 - Behaviour of submit button in forms
+# Day 17 - Behaviour of submit button in forms and Classes vs Hooks
+## Behaviour of Submit button
 
 ```html
 <form>
@@ -40,4 +41,31 @@ function handleSubmit(event){
 }
 ```
 
-Now the code inside the function handleSubmit is gonna get executed but the page won't reload as we have prevented the default behaviour of submit i.e. reloading the page
+Now the code inside the function handleSubmit is gonna get executed but the page won't reload as we have prevented the default behaviour of submit i.e. reloading the page.
+
+# Classes vs Hooks in React
+React originally used class components to manage state and lifecycle methods. But since React 16.8, Hooks were introduced to make function components powerful enough to replace most class-based code. Today, function components with hooks are the standard.
+
+✅ Key Differences
+| Feature           | Class Components                              | Function Components with Hooks |
+| ----------------- | --------------------------------------------- | ------------------------------ |
+| Syntax            | ES6 class syntax                              | JavaScript function            |
+| State Management  | `this.state` and `this.setState()`            | `useState()`                   |
+| Lifecycle Methods | `componentDidMount()`, `componentDidUpdate()` | `useEffect()`                  |
+| `this` keyword    | Required (e.g. `this.state`, `this.props`)    | Not used                       |
+| Code Reusability  | Harder — usually uses HOCs or render props    | Easier — custom hooks          |
+| Readability       | More boilerplate, verbose                     | Concise and cleaner            |
+| Learning Curve    | Steeper due to `this`, bindings, lifecycle    | Easier for beginners           |
+
+
+🧩 Should You Learn Class Components in 2025?
+👎 Not Mandatory for Most:
+If you're building new apps or interviewing for modern frontend jobs, Hooks are what you should focus on.
+
+95% of React codebases in 2025 prefer function components with hooks.
+
+👍 Still Helpful (Optional):
+Some legacy codebases still use class components.
+
+Knowing basics of class syntax can help you read and debug older code.
+
