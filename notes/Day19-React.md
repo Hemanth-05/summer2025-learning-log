@@ -97,6 +97,19 @@ setFullName((prevValue) => ({
 ```
 This makes the function cleaner and more scalable as the form grows.
 
+Also instead of this 
+
+```js
+  const newValue = event.target.value;
+  const inputName = event.target.name;
+```
+we can use object destructuring
+
+```js
+  const {value, name} = event.target;
+```
+Now instead of newValue and inputName, use value and name everywhere in the code.
+
 ---
 
 This documentation is written in a way that future-you can quickly understand what you did and why it works — even weeks later. 👍
