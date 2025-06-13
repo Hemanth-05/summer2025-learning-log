@@ -110,6 +110,8 @@ we can use object destructuring
 ```
 Now instead of newValue and inputName, use value and name everywhere in the code.
 
+**NOTE**: Also make use of react developer tools to know whats going on. It gives the information about hooks along with props.
+
 ---
 
 This documentation is written in a way that future-you can quickly understand what you did and why it works — even weeks later. 👍
