@@ -1,19 +1,66 @@
-# Day25: Todo list Project
+# 🗓️ Day 25: Todo List Project
 
-I have been busy this week so I didn't made much progress as I should. Lets continue with our learning today. Today I am going to build a todo list where we use multiple concepts that we have learned over the last few days.
+## ✍️ Context
+I have been busy this week so I didn't make as much progress as I should. Let's continue our learning today. I am building a Todo List using several concepts we've covered over the past few days.
 
-## How its gonna work
-### High Level
+---
 
-There is going to be a input field, and an add button and a list underneeth. When user types into the input field and clicks on add, the text in the input field gets added to the list.
+## 🚀 How It's Gonna Work
 
-### Low Level
-When user types into the input field, for every character changed, the onChange() function is going to be triggered and the value of the input is going to be associated with a useState hook called name which is going to update frequently (Controlled component).
-When user clicks on the "Add" button, we gonna associate onClick() with a function called createNewListItem, and the text is gonna be added to the list.
+### 🔹 High-Level Overview
+There will be:
+- An input field
+- An "Add" button
+- A list displayed below
 
-The concepts that I think will be used here are:
+When a user types something in the input field and clicks "Add", the typed text will be appended to the list.
 
- - onchange() to track the changes in input field
- - onClick() to add the text to the list
- - Controlled components so that the react state becomes the single source of truth for the input field
- - Component and props concept to create a new list item when "Add" is clicked
+### 🔸 Low-Level Functionality
+- The input field will be a **controlled component**. Every character the user types triggers the `onChange` handler.
+- The input’s value is stored in a `useState` hook (e.g., `inputValue`).
+- When the "Add" button is clicked, the `onClick` event fires a function that pushes this value to a list managed by another state variable.
+- The list is displayed using `.map()` which renders each item as an `<li>`.
+
+---
+
+## 🧰 Concepts Used
+
+- `onChange` attribute to track input field changes
+- `onClick` attribute to trigger add action
+- Controlled components — React state as the single source of truth
+- Spread operator to append to arrays immutably
+- `.map()` method for dynamic rendering
+- Component reuse and modularization (`Heading` component)
+
+---
+
+## 🛠️ Project Walkthrough
+
+1. Created a basic `Heading` component and imported it.
+2. Used a state variable `inputValue` to store the text typed into the input field.
+3. Created another state variable `inputArray` to manage the list of items.
+4. Bound the input field with `value={inputValue}` and updated it with `onChange`.
+5. Used `onClick` on the button to trigger a function that adds the `inputValue` to `inputArray`.
+6. Used `.map()` to dynamically render each element in the list inside `<li>` tags.
+
+---
+
+## ⚔️ Challenges Faced During Development
+
+- Initially, the array wasn’t updating correctly in the console because `setState` in React is asynchronous. This led to confusion about whether the value was actually getting appended.
+- Used a regular array (`const inputArray = [...]`) which caused it to reset every render. Switching to `useState` fixed it.
+- Tried pushing to the array directly, which mutated the state. This didn’t re-render the component. Eventually, used the spread operator to fix it.
+- When trying to render the list, I initially used static list items instead of `.map()`. This was corrected to dynamic rendering using `.map()` and a helper function `createList`.
+
+---
+
+## 💡 Lessons Learned
+
+- **React state updates are asynchronous** – never rely on the immediate result after setting state.
+- **Direct mutation of state doesn't trigger re-renders** – always use functional updates and spread operator.
+- **Controlled components make form management predictable**.
+- **Modularization** — Creating reusable components like `<Heading />` keeps code clean and organized.
+
+---
+
+This marks a good checkpoint in React basics where form handling, dynamic rendering, and state logic all came together in a single mini project.
