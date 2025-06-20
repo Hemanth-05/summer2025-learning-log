@@ -1,4 +1,4 @@
-# 📘 Day X – Fat Arrow Functions (`=>`) in JavaScript
+# 📘 Day 9 – Fat Arrow Functions (`=>`) in JavaScript
 
 Today I learned about **fat arrow functions** (also called **arrow functions**) in JavaScript — a more concise way to write function expressions.
 
