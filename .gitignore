@@ -1,2 +1,27 @@
-# Files to ignore
-ProjectIdeas.md
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# IDE/editor folders
+.vscode/
+.idea/
+
+# Node.js / JavaScript
+node_modules/
+dist/
+build/
+
+# Python
+__pycache__/
+*.pyc
+
+# Environment files
+.env
+
+# Mac-specific
+._*
+
