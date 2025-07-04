@@ -89,3 +89,111 @@ WHERE NOT grade = 'A';
 | _      | Exactly one character     | `WHERE code LIKE 'A_1'`          |
 
 ---
+
+
+## 🔍 SQL `LIKE` Clause — Detailed Explanation
+
+---
+
+### 📌 What is `LIKE`?
+
+The `LIKE` clause in SQL is used in a `WHERE` statement to **search for a specified pattern** in a column.
+
+It's commonly used with **string/text columns** when you **don’t know the exact value**, but you **know part of it** (e.g., starts with, ends with, contains something).
+
+---
+
+### ⚙️ Syntax
+
+```sql
+SELECT column1, column2
+FROM table_name
+WHERE column_name LIKE 'pattern';
+```
+
+---
+
+### 🎨 Wildcard Characters in `LIKE`
+
+| Symbol | Meaning                   | Example                        |
+|--------|---------------------------|--------------------------------|
+| `%`    | Zero or more characters   | `'A%'` matches `'Alice'`, `'Anna'`, `'A'` |
+| `_`    | Exactly one character     | `'J_n'` matches `'Jan'`, `'Jon'` but not `'John'` |
+
+---
+
+### 🧪 Examples
+
+#### 🔹 1. Starts With
+
+```sql
+SELECT * FROM Employees
+WHERE name LIKE 'A%';
+```
+✅ Matches names like: `Alice`, `Aaron`, `Andrew`
+
+---
+
+#### 🔹 2. Ends With
+
+```sql
+SELECT * FROM Employees
+WHERE name LIKE '%son';
+```
+✅ Matches names like: `Johnson`, `Anderson`, `Emerson`
+
+---
+
+#### 🔹 3. Contains
+
+```sql
+SELECT * FROM Products
+WHERE description LIKE '%wireless%';
+```
+✅ Matches descriptions that contain the word **"wireless"** anywhere.
+
+---
+
+#### 🔹 4. Single Character Match
+
+```sql
+SELECT * FROM Students
+WHERE name LIKE '_im';
+```
+✅ Matches: `Jim`, `Tim`, but **not** `Kimberly`
+
+---
+
+#### 🔹 5. Multiple Wildcards
+
+```sql
+SELECT * FROM Users
+WHERE email LIKE '%@gmail._om';
+```
+✅ Matches emails ending in `@gmail.com`, `@gmail.aom`, etc. (1 character after the dot)
+
+---
+
+### 🚨 Case Sensitivity
+
+- **MySQL**: `LIKE` is **case-insensitive** by default.
+- **PostgreSQL**: `LIKE` is **case-sensitive**. Use `ILIKE` for case-insensitive match:
+
+```sql
+SELECT * FROM names
+WHERE name ILIKE 'a%';
+```
+
+---
+
+### 🔄 Using `NOT LIKE`
+
+```sql
+SELECT * FROM Customers
+WHERE name NOT LIKE 'A%';
+```
+✅ Returns all names that **do not start** with "A".
+
+---
+
+
