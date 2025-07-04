@@ -80,6 +80,7 @@ WHERE NOT grade = 'A';
 | IS NOT NULL  | Value is NOT NULL                    | `WHERE phone IS NOT NULL`           |
 
 ---
+We'll discuss about **LIKE** and **IN** in detail below.
 
 ### 🔡 LIKE Wildcards
 
@@ -195,5 +196,157 @@ WHERE name NOT LIKE 'A%';
 ✅ Returns all names that **do not start** with "A".
 
 ---
+
+  
+
+## 🎯 SQL `IN` Clause — Full Explanation
+
+---
+
+### 📌 What is `IN` in SQL?
+
+The `IN` clause is used in the `WHERE` condition to **match a column value** against **a list of specified values**. It’s a **cleaner and more readable** alternative to writing multiple `OR` conditions.
+
+---
+
+### ⚙️ Syntax
+
+```sql
+SELECT column1, column2
+FROM table_name
+WHERE column_name IN (value1, value2, value3, ...);
+```
+
+You can also **negate** it using `NOT IN`:
+
+```sql
+WHERE column_name NOT IN (value1, value2, value3);
+```
+
+---
+
+### 📘 Basic Example
+
+```sql
+SELECT * FROM Employees
+WHERE department IN ('HR', 'Finance', 'Marketing');
+```
+
+✅ This will return rows where the `department` is **either** `'HR'`, `'Finance'`, or `'Marketing'`.
+
+---
+
+### ✍️ Without `IN`: Equivalent using `OR`
+
+```sql
+SELECT * FROM Employees
+WHERE department = 'HR'
+   OR department = 'Finance'
+   OR department = 'Marketing';
+```
+
+🛑 This works, but becomes **long and messy** as the list grows.
+
+---
+
+### 🧠 When to Use `IN`
+
+- You want to match **against a known list** of values
+- To improve **query readability**
+- You want to avoid long `OR` chains
+
+---
+
+### 🧪 More Examples
+
+#### 🔹 Numbers
+
+```sql
+SELECT * FROM Orders
+WHERE quantity IN (5, 10, 20);
+```
+
+### 🔹 Dates
+
+```sql
+SELECT * FROM Events
+WHERE event_date IN ('2025-01-01', '2025-12-25');
+```
+
+#### 🔹 `NOT IN`
+
+```sql
+SELECT * FROM Products
+WHERE category NOT IN ('Toys', 'Books');
+```
+
+---
+
+### 🔄 IN with Subqueries
+
+```sql
+SELECT name
+FROM Students
+WHERE student_id IN (
+    SELECT student_id
+    FROM Enrollments
+    WHERE course = 'CS101'
+);
+```
+
+✅ Returns students **enrolled in CS101**
+
+---
+
+### ⚠️ Caution: `NOT IN` and `NULL`
+
+Here’s the query that causes issues:
+
+```sql
+SELECT * FROM Users
+WHERE country NOT IN ('USA', NULL, 'UK');
+```
+
+#### ❓ What Happens?
+
+This **returns zero rows**, even if there are users with country = 'India' or 'Germany'. Why?
+
+- `NULL` means **unknown**
+- Any comparison with `NULL` results in **unknown**, not true or false
+- So, when SQL checks something like:
+
+```sql
+'Germany' NOT IN ('USA', NULL, 'UK')
+```
+
+It evaluates:
+- `'Germany' != 'USA'` → ✅
+- `'Germany' != NULL` → ❓ unknown
+- `'Germany' != 'UK'` → ✅
+
+Since one condition is unknown, the entire `NOT IN` is **unknown**, and SQL **excludes the row**.
+
+---
+
+### ✅ How to Fix It
+
+Filter out NULLs explicitly:
+
+```sql
+SELECT * FROM Users
+WHERE country IS NOT NULL
+  AND country NOT IN ('USA', 'UK');
+```
+
+✅ This avoids the NULL comparison issue.
+
+---
+
+### ✅ Rule of Thumb
+
+> **Never use `NOT IN` with a list or subquery that might contain NULLs.**
+
+If unsure, use `NOT EXISTS` instead — it’s **NULL-safe**.
+
 
 
