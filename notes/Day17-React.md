@@ -29,7 +29,7 @@ Whenever there is a submit inside a form tag, when we press it, it by default su
 
 So, now when we press the button, the form triggers the function handleSubmit and that code gets executed. And once the code executes, the page gets refreshed automatically.
 
-Now what if we want the handleSubmit function to get executed but prefent the default behaviour of submit button that is "Refreshing the page". Good news is we can do that.
+Now what if we want the handleSubmit function to get executed but prevent the default behaviour of submit button that is "Refreshing the page". Good news is we can do that.
 
 Now inside the handleSubmit function, at the very beginning, we should call the function event.preventDefault() to prevent the page from refreshing. This ensures the default form submission behavior (which causes a reload) is stopped before any other code runs.
 
