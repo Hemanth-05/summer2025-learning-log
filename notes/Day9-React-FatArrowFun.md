@@ -48,7 +48,7 @@ const newNumbers = numbers.findIndex((num) => {
 ```
 
 ✔️ Works exactly the same  
-✔️ Just replaced `function` with `(num) =>`
+✔️ Just replaced `function` with `=>`
 
 ---
 

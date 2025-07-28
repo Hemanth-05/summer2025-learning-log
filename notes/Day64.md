@@ -1,0 +1,1 @@
+Been on vacation for 2 weeks and came back and kind of got lazy. Now that I am back, lets start off where we stopped, the project in react. We left it half way and honestly speaking, I am not so sure if I remember what I was doing. So, lets so through the notes and get to speed.
