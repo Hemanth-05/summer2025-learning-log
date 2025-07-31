@@ -5,36 +5,47 @@ import Note from "./Note";
 import CreateArea from "./CreateArea";
 
 function App() {
-  const [title, setTitle] = useState("");
-  const [text, setText] = useState("");
-  const [titleArray, setTitleArray] = useState([]);
-  const [textArray, setTextArray] = useState([]);
-
-  function handleTitleFun(event) {
-    setTitle(event.target.value);
+  const [notes, setNotes] = useState([]);
+  const [noteItem, setNoteItem] = useState({
+    title: "",
+    content: "",
+  });
+  function handleChange(event) {
+    const inputName = event.target.name;
+    const newValue = event.target.value;
+    setNoteItem((prevValue) => {
+      if (inputName == "title") {
+        return {
+          title: newValue,
+          content: prevValue.content,
+        };
+      } else if (inputName == "content") {
+        return {
+          title: prevValue.title,
+          content: newValue,
+        };
+      }
+    });
   }
+  function handleClick(event) {
+    setNotes((prev) => {
+      return [...prev, noteItem];
+    });
 
-  function handleTextFun(event) {
-    setText(event.target.value);
-  }
-
-  function handleClickFun(event) {
-    event.preventDefault();
-    setTitleArray((prevValue) => [...prevValue, title]);
-    setTextArray((prevValue) => [...prevValue, text]);
-    setTitle("");
-    setText("");
+    setNoteItem({
+      title: "",
+      content: "",
+    });
   }
 
   return (
     <div>
       <Header />
       <CreateArea
-        titleValue={title}
-        textValue={text}
-        handleTitle={handleTitleFun}
-        handleText={handleTextFun}
-        handleClick={handleClickFun}
+        forClick={handleClick}
+        forChange={handleChange}
+        titleValue={noteItem.title}
+        contentValue={noteItem.content}
       />
       <Note key={1} title="Note title" content="Note content" />
       <Footer />
