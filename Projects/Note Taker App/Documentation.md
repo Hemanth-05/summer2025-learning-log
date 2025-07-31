@@ -34,3 +34,46 @@ CreateArea.jsx - This is the input field component which has name and content in
 Header.jsx - Has header
 Footer.jsx - Has a copyright and year
 Note.jsx - 
+
+### Explaining steps in Detail:
+#### Step One: 
+	It’s a straight forward step but the only thing to keep in mind is that, we have to find a way to trigger the onChange and onClick functions from child component (CreateArea.jsx). We have to define the body of these functions in main component (App.jsx).
+
+#### Step Two:
+``` jsx
+function handleChange(event) {
+    const inputName = event.target.name;
+    const newValue = event.target.value;
+    setNoteItem((prevValue) => {
+      if (inputName == "title") {
+        return {
+          title: newValue,
+          content: prevValue.content,
+        };
+      } else if (inputName == "content") {
+        return {
+          title: prevValue.title,
+          content: newValue,
+        };
+      }
+    });
+  }
+  ```
+
+#### Step Three:
+``` jsx
+function handleClick(event) {
+    setNotes((prev) => {
+      return [...prev, noteItem];
+    });
+
+    setNoteItem({
+      title: "",
+      content: "",
+    });
+  }
+  ```
+
+Until here when the user types into the input field and clicks on add, that information is getting stored in the array. Next step, we have to make sure that each noteItems in array are being displayed as notes.
+
+
