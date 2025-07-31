@@ -76,4 +76,13 @@ function handleClick(event) {
 
 Until here when the user types into the input field and clicks on add, that information is getting stored in the array. Next step, we have to make sure that each noteItems in array are being displayed as notes.
 
+To achieve that, all we had to do is this
+
+``` jsx
+function createNote(item) {
+    return <Note key={1} title={item.title} content={item.content} />;
+  }
+{notes.map(createNote)}
+```
+Since we already have note component, by writing above code, we'll be displaying all the elements in the array in the form of notes
 

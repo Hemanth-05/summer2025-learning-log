@@ -38,6 +38,10 @@ function App() {
     });
   }
 
+  function createNote(item) {
+    return <Note key={1} title={item.title} content={item.content} />;
+  }
+
   return (
     <div>
       <Header />
@@ -47,7 +51,7 @@ function App() {
         titleValue={noteItem.title}
         contentValue={noteItem.content}
       />
-      <Note key={1} title="Note title" content="Note content" />
+      {notes.map(createNote)}
       <Footer />
     </div>
   );
