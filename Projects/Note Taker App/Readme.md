@@ -8,6 +8,17 @@ This is a basic note taker app. It has the following functionalities:
  - A "Delete" button which lets you delete notes
 
 ## On a Low Level
- - First we have to make sure when user is typing into the title of text area, its being read by the app, for that we are using the onChange property.
- - When the user clicks on "Add" button, the title and content should be added to an array of objects which will then be displayed on the screen in a saperate note component.
- - When the user clicks on "Delete", the array with that title and content should be removed from the array of objects, and once it gets removed, the note component that has all the notes should be re-rendered to make sure it displays only the contents that are inside the array.
+ 
+### Overview
+- We have 2 inputs with names title and content. 
+- The goal is to create 2 state variables to hold values. One would be an object with keys title and content to hold the values we enter into the input fields. The name of this variable is noteItem.
+- The second state variable will be the array that holds all the objects. This is where all the notes are saved. We give this variable a name Notes.
+
+``` jsx
+const [notes, setNotes] = useState([]);
+  const [noteItem, setNoteItem] = useState({
+    title: "",
+    content: "",
+  });
+  ```
+This above is the code for the state variables.
