@@ -22,3 +22,15 @@ const [notes, setNotes] = useState([]);
   });
   ```
 This above is the code for the state variables.
+
+### Execution Steps
+1. We will create 2 functions, one for onChange and one for onClick. 
+2. Whenever the user types into the inputs, those inputs will be directly entered as the values of  title and content keys.
+3. When we click on the add button, the values that are inside the noteItem object will be added to the Notes array, and the noteItem object will get reset into have null values for both title and content.
+
+### Components Architecture
+App.jsx - This is the Main component.
+CreateArea.jsx - This is the input field component which has name and content input fields and an add button.
+Header.jsx - Has header
+Footer.jsx - Has a copyright and year
+Note.jsx - 
