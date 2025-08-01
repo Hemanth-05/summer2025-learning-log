@@ -27,6 +27,7 @@ This above is the code for the state variables.
 1. We will create 2 functions, one for onChange and one for onClick. 
 2. Whenever the user types into the inputs, those inputs will be directly entered as the values of  title and content keys.
 3. When we click on the add button, the values that are inside the noteItem object will be added to the Notes array, and the noteItem object will get reset into have null values for both title and content.
+4. When we click the delete button on the note component, we have to find a way to know which item is clicked, and that item should be removed from the array. Once that item is removed, since the component is changed, it re-renders automatically and displayes all the notes in the array. Since that note is no longer present, we won't see that no more. Hence we say it is deleted.
 
 ### Components Architecture
 App.jsx - This is the Main component.
@@ -86,3 +87,28 @@ function createNote(item) {
 ```
 Since we already have note component, by writing above code, we'll be displaying all the elements in the array in the form of notes
 
+#### Step Four:
+
+- Now while passing the props for Note component, we pass the index too as a prop, which will be received to it in the form of ID.
+
+``` jsx
+function createNote(item, index) {
+    return <Note key={index} id = {index} title={item.title} content={item.content} deleteFunctionality ={handleDelete}/>;
+  }
+```
+
+Now we'll know which note is getting clicked when we click on delete, now we have to write a function to take it out of the array.
+
+``` jsx
+function handleDelete(id){
+    setNotes((prevItems) => {
+      return prevItems.filter((item, index) => {
+        return index !== id;
+      });
+    });
+  }
+```
+
+Thats the end of the project **NOTE TAKING APP**. 
+
+Good work Hemanth! You deserve a pat on the back.
