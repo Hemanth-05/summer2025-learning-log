@@ -38,8 +38,16 @@ function App() {
     });
   }
 
-  function createNote(item) {
-    return <Note key={1} title={item.title} content={item.content} />;
+  function handleDelete(id){
+    setNotes((prevItems) => {
+      return prevItems.filter((item, index) => {
+        return index !== id;
+      });
+    });
+  }
+
+  function createNote(item, index) {
+    return <Note key={index} id = {index} title={item.title} content={item.content} deleteFunctionality ={handleDelete}/>;
   }
 
   return (
