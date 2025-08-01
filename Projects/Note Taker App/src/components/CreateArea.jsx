@@ -1,7 +1,7 @@
 import React from "react";
 
 function CreateArea(props) {
-  function handleSubmit() {
+  function handleSubmit(event) {
     event.preventDefault();
   }
 

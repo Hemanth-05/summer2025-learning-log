@@ -14,12 +14,12 @@ function App() {
     const inputName = event.target.name;
     const newValue = event.target.value;
     setNoteItem((prevValue) => {
-      if (inputName == "title") {
+      if (inputName === "title") {
         return {
           title: newValue,
           content: prevValue.content,
         };
-      } else if (inputName == "content") {
+      } else if (inputName === "content") {
         return {
           title: prevValue.title,
           content: newValue,
