@@ -6,6 +6,7 @@ A simple React application that allows users to create and delete notes dynamica
 
 ## Getting Started
 
+Live Link: https://gm882j.csb.app/
 Follow the steps below to run this project locally.
 
 ### Prerequisites
